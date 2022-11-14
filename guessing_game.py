@@ -8,36 +8,25 @@ import random
 
 
 def main():
-    # this function uses a break statement
+    # Finds if the chosen number from 0 to 9 is equal to the random number
 
-    # input
-    random_number = random.randint(0, 9)  # a number between 0 and 9
-    positive_integer_as_string = input("Enter an integer: ")
-    print("")
-
-    # process & output
+    random_number = random.randint(0, 9)
     try:
-        positive_integer_as_number = int(positive_integer_as_string)
-        for loop_counter in range(positive_integer_as_number):
-            if loop_counter == random_number:
-                print("{0} is correct".format(positive_integer_as_number))
+        while True:
+            user_input = input("\nEnter a number from 0 to 9: ")
+            user_input_int = int(user_input)
+            if user_input_int == random_number:
+                print("\nCorrect!")
+                print("The number was {}.".format(random_number))
                 break
-        if positive_integer_as_string > random_number:
-            print(
-                "{0} is greater than the random number.".format(
-                    positive_integer_as_number
-                )
-            )
-        else:
-            print(
-                "{0} is lower than the random number.".format(
-                    positive_integer_as_number
-                )
-            )
+            elif user_input_int > random_number:
+                print("\n{} is higher than the random number.".format(user_input))
+            elif user_input_int < random_number:
+                print("\n{} is lower than the random number.".format(user_input))
     except ValueError:
-        print("{0} is not an integer".format(positive_integer_as_string))
+        print("\n{} is not an integer.".format(user_input))
     finally:
-        print("Done.")
+        print("\nDone.")
 
 
 if __name__ == "__main__":
